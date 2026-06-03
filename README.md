@@ -1,57 +1,92 @@
-# Documentación del Chatbot ZGZ Info
+# 🤖 ZGZ Info — Chatbot Municipal de Zaragoza
 
-## Contexto
+![Landbot](https://img.shields.io/badge/Landbot-No%20Code-5A45FF?style=for-the-badge&logo=chatbot&logoColor=white)
+![GPT](https://img.shields.io/badge/OpenAI-GPT%20PLN-412991?style=for-the-badge&logo=openai&logoColor=white)
+![Estado](https://img.shields.io/badge/Estado-Completado-4CAF50?style=for-the-badge)
+![Tipo](https://img.shields.io/badge/Práctica-No%20Code%20%2F%20IA-FF6B6B?style=for-the-badge)
 
-Este documento detalla el chatbot **ZGZ Info**, un asistente virtual desarrollado en la plataforma Landbot para el Ayuntamiento de Zaragoza. Su propósito principal es ofrecer información rápida y accesible sobre los servicios de transporte público de la ciudad, actuando como un punto de contacto inicial para los ciudadanos que buscan datos sobre autobuses, tranvías, bicicletas y cercanías.
+> **Ejercicio Práctico — Creación de Chatbots con IA**  
+> Asistente virtual municipal para el **Ayuntamiento de Zaragoza**
 
-## Especificaciones
+---
 
-El chatbot ha sido diseñado para:
+## 📋 Descripción del Proyecto
 
-*   **Asistencia en Transporte Público:** Proporcionar detalles sobre líneas, horarios, frecuencias y métodos de pago (tarjeta bus).
-*   **Interacción Guiada:** Ofrecer opciones predefinidas para facilitar la navegación del usuario.
-*   **Procesamiento de Lenguaje Natural (PLN) Básico:** Interpretar preguntas de texto libre para ofrecer respuestas más específicas, como por ejemplo preguntar por el horario de una línea de autobús específica. También en el caso de preguntar por una ubicación que no tiene destino directo mediante un medio de transporte, ofrece la opción de realizar trasbordos.
-*   **Clarificación de Consultas:** Solicitar información adicional al usuario para refinar la búsqueda y ofrecer datos precisos.
+**ZGZ Info** es un chatbot desarrollado en **Landbot** que proporciona información municipal clara, oficial y accesible a la ciudadanía de Zaragoza. Integra un bloque de **IA con GPT** para interpretar preguntas en lenguaje natural, gestionar trasbordos cuando no existe conexión directa y derivar a los recursos oficiales del Ayuntamiento cuando el dato exacto no está disponible.
 
-## Detalles Técnicos y de Implementación
+---
 
-### Equipo de Desarrollo
+## ⚙️ Funcionalidades
 
-El chatbot fue desarrollado por el equipo compuesto por Mayelin, Miguel y Francisco.
+### 🚌 Transporte Público
+- Líneas, horarios y frecuencias de **autobús urbano**
+- **Tranvía** (Línea 1)
+- Bicicleta pública **Bizi** — precios y estaciones
+- **Cercanías**
+- Gestión de **trasbordos** cuando no hay conexión directa al destino
 
-### Prompt de Sistema (Landbot - Bloque AI / GPT)
+### 🏛️ Servicios Municipales
 
-El prompt utilizado para configurar el comportamiento del chatbot es el siguiente:
+| Ámbito | Cobertura |
+|---|---|
+| **Trámites** | Empadronamiento, tasas, licencias |
+| **Cultura y Turismo** | Basílica del Pilar, La Seo, Aljafería, Fiestas del Pilar |
+| **Otros servicios** | Deportes, medioambiente, atención social, avisos municipales |
 
-> Eres "ZGZ Info", asistente virtual del Ayuntamiento de Zaragoza. Tu función es dar información municipal clara, oficial y útil a la ciudadanía.
+---
 
-### Ámbitos de Información Cubiertos
+## 🧩 Configuración del Agente IA
 
-El chatbot está diseñado para proporcionar información dentro de los siguientes ámbitos:
+### System Prompt — Bloque GPT de Landbot
 
-*   **Trámites:** Empadronamiento, tasas, licencias.
-*   **Transporte:** Autobús urbano, tranvía, Bizi (bicicleta pública).
-*   **Cultura y Turismo:** Basílica del Pilar, La Seo, Aljafería, fiestas del Pilar.
-*   **Otros:** Deportes, medioambiente, atención social y avisos municipales.
+```
+Eres "ZGZ Info", asistente virtual del Ayuntamiento de Zaragoza.
+Tu función es dar información municipal clara, oficial y útil a la ciudadanía.
+```
 
-### Reglas de Interacción del Chatbot
+### Reglas de interacción
 
-Para asegurar una interacción efectiva y precisa, el chatbot sigue las siguientes reglas:
+| Regla | Descripción |
+|---|---|
+| ✅ Solo Zaragoza | Reconduces amablemente si la pregunta es ajena a la ciudad |
+| ✅ Tono conciso | Cercano, profesional y claro — máx. 4-5 frases por respuesta |
+| ✅ Datos reales | Precios Bizi, teléfono 010 y horarios verificados en fuentes oficiales |
+| ✅ Saludo inicial | Presenta el asistente y pregunta en qué puede ayudar |
+| ❌ No inventa | Nunca genera horarios, precios ni teléfonos sin fuente |
+| ❌ Deriva si no sabe | Redirige al **010** o a [zaragoza.es](https://www.zaragoza.es) |
 
-*   Responde solo sobre Zaragoza. Si se pregunta sobre otra ciudad o tema ajeno, reconduce amablemente la conversación.
-*   Mantiene un tono cercano, profesional y conciso, con respuestas de un máximo de 4-5 frases.
-*   Si no dispone del dato exacto, lo indica y deriva al 010 (atención ciudadana) o a zaragoza.es.
-*   Evita inventar horarios, precios o teléfonos; en caso de duda, recomienda verificar la información en la web oficial.
-*   Saluda al inicio de la conversación y pregunta en qué puede ayudar.
+---
 
-### Protocolo de Pruebas
+## 🔍 Protocolo de pruebas
 
-El proceso de pruebas incluyó:
+- Recorrido exhaustivo de todos los caminos y ramas del constructor (builder)
+- Verificación de todos los enlaces en entorno de producción
+- Validación de datos con fuentes oficiales del Ayuntamiento
 
-*   Un recorrido exhaustivo de todos los caminos y ramas del constructor (builder).
-*   La inclusión de datos 100% reales para garantizar la credibilidad institucional (ej. Precio Bizi, teléfono 010).
-*   Verificación de enlaces reales comprobados en entorno de producción.
+---
 
-### Ejemplo de Despliegue
+## 🧰 Tecnologías utilizadas
 
-El chatbot se integra con la red de autobús urbano, tranvía (línea 1) y bicicleta pública Bizi. Permite la consulta de horarios en tuzsa.es o en la aplicación Zaragoza Móvil.
+| Herramienta | Uso |
+|---|---|
+| **Landbot** | Constructor visual de chatbot (no-code) |
+| **OpenAI GPT** | Procesamiento de lenguaje natural (PLN) |
+| **Flujos condicionales** | Ramificación lógica según intención del usuario |
+
+---
+
+## 👥 Equipo de desarrollo
+
+Proyecto desarrollado en equipo por **Mayelin, Miguel y Francisco** como práctica del programa de formación en Análisis de Datos.
+
+---
+
+## 📚 Contexto formativo
+
+Este ejercicio forma parte del programa de formación en **Análisis de Datos**, dentro del módulo de herramientas no-code e inteligencia artificial conversacional. El objetivo es comprender el diseño de flujos de conversación, la integración de modelos de lenguaje y el despliegue de chatbots sin código orientados a casos de uso reales de la administración pública.
+
+---
+
+<p align="center">
+  <sub>Desarrollado por <a href="https://github.com/migueljerico">@migueljerico</a> · 2025</sub>
+</p>
